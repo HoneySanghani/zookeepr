@@ -1,5 +1,7 @@
 const {animals}=require('./data/animals.json');
 const express=require('express');
+//for heroku to run the app
+const PORT=process.env.PORT||3001;
 const app=express();
 
 function filterByQuery(query,animalArray){
@@ -37,6 +39,6 @@ app.get('/api/animals',(req,res)=>{
   }
   res.json(results);
 });
-app.listen(3002,()=>{
-  console.log('API server now on port 3002');
+app.listen(PORT,()=>{
+  console.log(`API server now on port ${PORT}`);
 })
