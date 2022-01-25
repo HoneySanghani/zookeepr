@@ -11,6 +11,7 @@ const app=express();
 app.use(express.urlencoded({extended:true}));
 //parse incoming json data
 app.use(express.json());
+app.use(express.static('public'));
 function filterByQuery(query,animalArray){
   let personalityTraitsArray=[];
   let filteredResults=animalArray;
@@ -72,6 +73,8 @@ function validateAnimal(animal){
     return true;
   }
 }
+
+
 app.get('/api/animals',(req,res)=>{
   let results=animals;
   if(req.query){
@@ -79,7 +82,6 @@ app.get('/api/animals',(req,res)=>{
   }
   res.json(results);
 });
-
 
 app.get('/api/animals/:id',(req,res)=>{
   const result=findById(req.params.id,animals);
@@ -90,7 +92,6 @@ app.get('/api/animals/:id',(req,res)=>{
    res.send(404);
  }
 });
-
 
 app.post('/api/animals',(req,res)=>{
   req.body.id=animals.length.toString();
@@ -103,7 +104,22 @@ app.post('/api/animals',(req,res)=>{
   }
 });
 
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/index.html'));
+});
 
+app.get('/animals',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/animals.html'));
+});
+
+app.get('/zookeepers',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/zookeepers.html'));
+});
+
+//wildcard routes
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public/index.html'));
+})
 app.listen(PORT,()=>{
   console.log(`API server now on port ${PORT}`);
 });

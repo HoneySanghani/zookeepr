@@ -117,6 +117,32 @@
         "hungry"
       ],
       "id": "11"
+    },
+    {
+      "name": "honey bee",
+      "species": "bird",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry",
+        "loving"
+      ],
+      "id": "12"
+    },
+    {
+      "name": "honey bunny",
+      "species": "bee",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "loving"
+      ],
+      "id": "13"
+    },
+    {
+      "name": "dharmik",
+      "species": "something",
+      "diet": "herbivore",
+      "personalityTraits": [],
+      "id": "14"
     }
   ]
 }
