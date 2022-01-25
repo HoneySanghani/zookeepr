@@ -143,6 +143,15 @@
       "diet": "herbivore",
       "personalityTraits": [],
       "id": "14"
+    },
+    {
+      "name": "honey bee",
+      "species": "something",
+      "diet": "folivore",
+      "personalityTraits": [
+        "anxious"
+      ],
+      "id": "15"
     }
   ]
 }
